@@ -1,11 +1,19 @@
 {
   "expo": {
-    "name": "DiagnoAide",
-    "slug": "diagnoaide",
+    "name": "a0-project",
+    "slug": "a0-project",
     "version": "1.0.0",
     "sdkVersion": "52.0.0",
     "platforms": ["ios", "android", "web"],
-    "assetBundlePatterns": ["**/*"],
-    "jsEngine": "hermes"
+    "android": {
+      "jsEngine": "hermes"
+    },
+    "web": {
+      "build": {
+        "babel": {
+          "include": ["lucide-react-native"]
+        }
+      }
+    }
   }
 }
