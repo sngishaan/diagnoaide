@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "0BSD",
   "private": true,
-  "main": "index.ts",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "npx expo start",
     "android": "npx expo run:android",
