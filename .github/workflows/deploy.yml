@@ -10,20 +10,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      
       - run: npm ci
-      - run: npx expo export --platform web
-      - uses: actions/upload-pages-artifact@v3  # updated from v2 to v3
+      
+      # Run the web export; this creates a folder named 'web-build' by default
+      - run: npx expo export:web
+      
+      # Check that web-build folder exists and list files (for debugging)
+      - run: |
+          echo "Listing files in web-build folder:"
+          ls -l web-build
+      
+      # Upload the web-build folder for pages deployment
+      - uses: actions/upload-pages-artifact@v2
         with:
-          path: dist  # or the output folder of your web export
+          path: web-build
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: github-pages  # required for deploy-pages action
+      name: github-pages
     permissions:
       pages: write
       id-token: write
