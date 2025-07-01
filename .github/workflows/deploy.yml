@@ -19,7 +19,7 @@ jobs:
       
       - run: npm ci
 
-      - run: npx expo build:web
+      - run: npx export:web --output-dir web-build
 
       - run: ls -la
       - run: ls -la web-build  # debug
