@@ -12,10 +12,8 @@
       "build": {
         "babel": {
           "include": ["lucide-react-native"]
-        }
-      },
-      "output": {
-        "publicPath": "/a0-project/"
+        },
+        "publicPath": "diagnoaide"
       }
     }
   }
