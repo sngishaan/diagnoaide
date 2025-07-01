@@ -16,16 +16,12 @@ jobs:
           node-version: 18
       
       - run: npm ci
-      
-      # Run the web export; this creates a folder named 'web-build' by default
-      - run: npx expo export
-      
-      # Check that web-build folder exists and list files (for debugging)
-      - run: |
-          echo "Listing files in web-build folder:"
-          ls -l web-build
-      
-      # Upload the web-build folder for pages deployment
+
+      - run: npx expo export --platform web --output-dir web-build
+
+      - run: ls -la
+      - run: ls -la web-build  # debug
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: web-build
