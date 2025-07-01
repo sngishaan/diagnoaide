@@ -9,6 +9,7 @@
       "jsEngine": "hermes"
     },
     "web": {
+      "publicPath": "/a0-project/",
       "build": {
         "babel": {
           "include": ["lucide-react-native"]
