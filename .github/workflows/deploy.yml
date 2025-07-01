@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      web_build_dir: web-build
     steps:
       - uses: actions/checkout@v4
       
@@ -17,7 +19,7 @@ jobs:
       
       - run: npm ci
 
-      - run: npx expo export --platform web --output-dir web-build
+      - run: npx expo build:web
 
       - run: ls -la
       - run: ls -la web-build  # debug
@@ -35,4 +37,6 @@ jobs:
       pages: write
       id-token: write
     steps:
+      - uses: actions/download-pages-artifact@v2
+
       - uses: actions/deploy-pages@v4
